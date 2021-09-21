@@ -1,0 +1,57 @@
+
+p {
+    color: rgb(230, 230, 240);
+    background-color: rgb(26, 35, 59);
+    border-radius: 16px;
+    border-color: rgb(18, 25, 46);
+    border-width: 5px;
+    padding: 18px;
+}
+
+body {
+    background-color: rgb(40, 50, 80);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    color: rgb(230, 230, 240);
+}
+
+textarea {
+    color: rgb(230, 230, 240);
+    background-color: rgb(37, 48, 80);
+    border-color: rgb(26, 35, 59);
+    border-radius: 16px;
+    border-width: 5px;
+    /* width: 12px; */
+}
+
+div.content {
+    padding: 30%;
+    /* background-color: rgb(26, 35, 61); */
+}
+
+div.textAreas {
+    background-color: rgb(26, 35, 59);
+    border-radius: 16px;
+    border-color: rgb(18, 25, 46);
+    padding: 18px;
+    column-count: 2;
+}
+
+button {
+    background-color: rgb(26, 35, 59);
+    border-color: rgb(18, 25, 46);
+    border-style: solid;
+    border-radius: 16px;
+    border-width: 5px;
+    min-height: 32px;
+    padding-right: 12px;
+    padding-left: 12px;
+    color: rgb(230, 230, 240);
+}
+
+button:hover {
+    background-color: rgb(37, 48, 80);
+    border-color: rgb(26, 35, 59);
+}
