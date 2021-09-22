@@ -96,10 +96,11 @@ let chars = [
     "guy",
     "woman",
     "man",
-    "math equation"
-    ]
+    "math equation",
+    "word"
+]
 
-    let objects = [
+let objects = [
     "paper",
     "pencil",
     "computer",
@@ -126,7 +127,6 @@ let chars = [
     "father",
     "mother",
     "pants",
-    "shots",
     "hat",
     "shoe",
     "dress",
@@ -139,7 +139,13 @@ let chars = [
     "table",
     "counter",
     "toilet",
-    "tub"
+    "tub",
+    "word",
+    "gun",
+    "sword",
+    "spear",
+    "rifle",
+    "pistol"
 ]
 
 function getRandEle(arr) {
