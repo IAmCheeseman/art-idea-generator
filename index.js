@@ -184,7 +184,7 @@ function generateIdea() {
     let refreshButton = document.getElementById("refreshButton");
     let idea = document.createElement("p");
 
-    idea.innerHTML = `Draw a ${getRandEle(adjs)} ${getRandEle(chars)}${getRandEle(situations)}.`
+    idea.innerHTML = `A ${getRandEle(adjs)} ${getRandEle(chars)}${getRandEle(situations)}.`
     thing.insertBefore(idea, refreshButton);
 
     idea.id = "idea"
