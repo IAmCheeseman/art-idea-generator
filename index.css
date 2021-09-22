@@ -2,19 +2,17 @@
 p {
     color: rgb(230, 230, 240);
     background-color: rgb(26, 35, 59);
-    border-radius: 16px;
     border-color: rgb(18, 25, 46);
-    border-width: 5px;
+
+    border-radius: 32px;
+    border-width: 2px;
+
     padding: 18px;
 }
 
 body {
     background-color: rgb(40, 50, 80);
     font-family: Arial, Helvetica, sans-serif;
-}
-
-h3 {
-    color: rgb(230, 230, 240);
 }
 
 textarea {
@@ -26,10 +24,34 @@ textarea {
     /* width: 12px; */
 }
 
+div.title {
+    color: rgb(230, 230, 240);
+    background-color: rgb(26, 35, 59);
+    border-radius: 16px;
+    border-color: rgb(18, 25, 46);
+    border-width: 5px;
+    padding: 18px;
+}
+
 div.content {
     padding: 30%;
+    padding-top: 0%;
     /* background-color: rgb(26, 35, 61); */
 }
+
+footer {
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+h1, h2, h3 {
+    color: rgb(230, 230, 240);
+}
+
+h2 {
+    font-size: 24px;
+}
+
 
 div.textAreas {
     background-color: rgb(26, 35, 59);
@@ -44,7 +66,7 @@ button {
     border-color: rgb(18, 25, 46);
     border-style: solid;
     border-radius: 16px;
-    border-width: 5px;
+    border-width: 2px;
     min-height: 32px;
     padding-right: 12px;
     padding-left: 12px;
@@ -54,4 +76,5 @@ button {
 button:hover {
     background-color: rgb(37, 48, 80);
     border-color: rgb(26, 35, 59);
+    cursor: pointer;
 }
