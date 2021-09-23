@@ -97,7 +97,7 @@ let chars = [
     "woman",
     "man",
     "math equation",
-    "word"
+    "word",
     "dot"
 ]
 
