@@ -98,6 +98,7 @@ let chars = [
     "man",
     "math equation",
     "word"
+    "dot"
 ]
 
 let objects = [
@@ -154,10 +155,7 @@ function getRandEle(arr) {
 
 
 function generateIdea() {
-    let currentIdea = document.getElementById("idea");
-    if (currentIdea) {
-        currentIdea.remove();
-    }
+    let idea = document.getElementById("idea");
 
     let index = Math.floor(Math.random()*verbs.length);
     let index1 = Math.floor(Math.random()*verbs.length);
@@ -180,14 +178,7 @@ function generateIdea() {
         ` and a ${getRandEle(adjs)} ${getRandEle(chars)} sharing a ${getRandEle(objects)}`
     ]
 
-    let thing = document.getElementById("center");
-    let refreshButton = document.getElementById("refreshButton");
-    let idea = document.createElement("p");
-
     idea.innerHTML = `A ${getRandEle(adjs)} ${getRandEle(chars)}${getRandEle(situations)}.`
-    thing.insertBefore(idea, refreshButton);
-
-    idea.id = "idea"
 }
 
 generateIdea();
