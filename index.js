@@ -26,7 +26,7 @@ function loadFile(url) {
     }
   }
   xhr.open("GET", "/" + url);
-  console.log(`Requesting /${required[0]}`)
+  console.log(`Requesting /${url}`)
 }
 
 required.forEach(function (item, index) {
