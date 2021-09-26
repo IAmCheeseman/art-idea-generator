@@ -29,7 +29,7 @@ function loadFile(url) {
   xhr.open("GET", "/" + url);
   xhr.send();
   console.log(`Requesting ${url}`)
-  
+
   return true;
 }
 
@@ -43,8 +43,8 @@ function getRandEle(arr) {
 
 
 function generateIdea() {
-    let index = Math.floor(Math.random()*verbs.length);
-    let index1 = Math.floor(Math.random()*verbs.length);
+    let index = Math.floor(Math.random()*res.verbs.length);
+    let index1 = Math.floor(Math.random()*res.verbs.length);
 
     let situations = [
         ``,
