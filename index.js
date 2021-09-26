@@ -66,16 +66,16 @@ function generateIdea() {
 
     raw = `A ${getRandEle(res.adjectives)} ${getRandEle(res.characters)}${getRandEle(situations)}.`
 
-    raw.replaceAll("a a", "an a")
-    raw.replaceAll("a e", "an e")
-    raw.replaceAll("a i", "an i")
-    raw.replaceAll("a o", "an o")
-    raw.replaceAll("a u", "an u")
-    raw.replaceAll("A a", "An a")
-    raw.replaceAll("A e", "An e")
-    raw.replaceAll("A i", "An i")
-    raw.replaceAll("A o", "An o")
-    raw.replaceAll("A u", "An u")
+    raw = raw.replaceAll("a a", "an a")
+    raw = raw.replaceAll("a e", "an e")
+    raw = raw.replaceAll("a i", "an i")
+    raw = raw.replaceAll("a o", "an o")
+    raw = raw.replaceAll("a u", "an u")
+    raw = raw.replaceAll("A a", "An a")
+    raw = raw.replaceAll("A e", "An e")
+    raw = raw.replaceAll("A i", "An i")
+    raw = raw.replaceAll("A o", "An o")
+    raw = raw.replaceAll("A u", "An u")
 
     idea.innerHTML = raw
 }
