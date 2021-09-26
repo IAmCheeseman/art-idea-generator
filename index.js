@@ -1,153 +1,41 @@
-let adjs = [
-    "smelly",
-    "nerdy",
-    "smart",
-    "weird",
-    "stupid",
-    "rude",
-    "dirty",
-    "poor",
-    "rich",
-    "childish",
-    "political",
-    "happy",
-    "loving",
-    "murderous",
-    "kind",
-    "handsome",
-    "beautiful",
-    "accurate",
-    "specific",
-    "thoughtful",
-    "thinking",
-    "absolute",
-    "athletic",
-    "fat",
-    "skinny",
-    "tall",
-    "short",
-    "small",
-    "large",
-    "huge",
-    "tiny",
-    "loud",
-    "quiet",
-    "bright",
-    "dark",
-    "evil"
+let required = [
+    "adjectives.json",
+    "characters.json",
+    "objects.json",
+    "verbs.json"
 ]
+// requiring "adjectives.json" will request /adjectives.json and 
+// leave it in res.adjectives to be used later
 
-let verbs = [
-    ["smelling", "a"],
-    ["touching", "a"],
-    ["smacking", "a"],
-    ["hitting", "a"],
-    ["screaming", "at a"],
-    ["smiling", "at a"],
-    ["looking", "at a"],
-    ["sharing", "a"],
-    ["giving someone", "a"],
-    ["eating", "a"],
-    ["sending", "a"],
-    ["drinking", "a"],
-    ["running", "at a"],
-    ["killing", "a"],
-    ["cringing", "at a"],
-    ["hiding", "from a"],
-    ["staring", "at a"],
-    ["selling", "a"],
-    ["jogging", "at a"],
-    ["hopping", "at a"]
-    ["jumping", "at a"]
-]
+let idea = document.getElementById("idea");
+let loaded = 0
+idea.innerHTML = loaded + "/" + required.length +" resources loaded"
 
-let chars = [
-    "human",
-    "chashier",
-    "spider",
-    "ghost",
-    "cat",
-    "dog",
-    "CEO",
-    "manager",
-    "IT guy",
-    "programmer",
-    "artist",
-    "hacker",
-    "teacher",
-    "student",
-    "intern",
-    "otter",
-    "beaver",
-    "bird",
-    "crow",
-    "elephant",
-    "lion",
-    "tiger",
-    "wolf",
-    "squid",
-    "jellyfish",
-    "shark",
-    "fish",
-    "boat",
-    "car",
-    "truck",
-    "limo",
-    "guy",
-    "woman",
-    "man",
-    "math equation",
-    "word",
-    "dot"
-]
+let res = {}
 
-let objects = [
-    "paper",
-    "pencil",
-    "computer",
-    "spaghetti",
-    "pasta",
-    "eyeball",
-    "glasses",
-    "clown wig",
-    "otter",
-    "tree",
-    "money",
-    "12 year old boy",
-    "clown",
-    "coffee",
-    "water",
-    "cheese",
-    "video game",
-    "finger",
-    "cat",
-    "Feji™️ Water",
-    "pool",
-    "forest",
-    "car",
-    "father",
-    "mother",
-    "pants",
-    "hat",
-    "shoe",
-    "dress",
-    "skirt",
-    "van",
-    "cliff",
-    "chair",
-    "bed",
-    "couch",
-    "table",
-    "counter",
-    "toilet",
-    "tub",
-    "word",
-    "gun",
-    "sword",
-    "spear",
-    "rifle",
-    "pistol"
-]
+function loadFile(url) {
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    urlSplit = url.split("."); // if the url contains an extension, it gets split into the name and extension respectively
+    res[urlSplit[0]] = JSON.parse(xhr.responseText)
+    loaded += 1
+    idea.innerHTML = loaded + "/" + required.length +" resources loaded"
+    console.log(`Loaded ${url}`)
+
+    if (loaded === required.length) {
+        generateIdea() // Generates the random idea once everything is loaded
+    }
+  }
+  xhr.open("GET", "/" + url);
+  xhr.send();
+  console.log(`Requesting ${url}`)
+
+  return true;
+}
+
+required.forEach(function (item, index) {
+  loadFile(item)
+});
 
 function getRandEle(arr) {
     return arr[Math.floor(Math.random()*arr.length)];
@@ -155,30 +43,26 @@ function getRandEle(arr) {
 
 
 function generateIdea() {
-    let idea = document.getElementById("idea");
-
-    let index = Math.floor(Math.random()*verbs.length);
-    let index1 = Math.floor(Math.random()*verbs.length);
+    let index = Math.floor(Math.random()*res.verbs.length);
+    let index1 = Math.floor(Math.random()*res.verbs.length);
 
     let situations = [
         ``,
-        ` ${verbs[index][0]} ${verbs[index][1]} ${getRandEle(objects)}`,
-        ` and a ${getRandEle(adjs)} ${getRandEle(chars)} ${verbs[index][0]} ${verbs[index][1]} ${getRandEle(objects)}`,
-        ` ${verbs[index][0]} ${verbs[index][1]} ${getRandEle(objects)} while ${verbs[index1][0]} ${verbs[index1][1]} ${getRandEle(objects)}`,
-        ` with a ${getRandEle(objects)}`,
-        ` with a ${getRandEle(objects)} and a ${getRandEle(objects)}`,
-        ` with a ${getRandEle(adjs)} ${getRandEle(objects)}`,
-        ` with a ${getRandEle(adjs)} ${getRandEle(objects)} and a ${getRandEle(adjs)} ${getRandEle(objects)}`,
-        ` with a ${getRandEle(objects)} ${verbs[index][0]} ${verbs[index][1]} ${getRandEle(objects)}`,
-        ` with a ${getRandEle(objects)} while ${verbs[index][0]} ${verbs[index][1]} ${getRandEle(objects)}`,
-        ` which is ${verbs[index][0]}`,
-        ` with a ${getRandEle(adjs)} and ${getRandEle(adjs)} ${getRandEle(chars)}`,
-        ` with a ${getRandEle(adjs)} ${getRandEle(chars)} sharing a ${getRandEle(objects)}`,
-        ` which is ${verbs[index][0]}, like a ${getRandEle(objects)}`,
-        ` and a ${getRandEle(adjs)} ${getRandEle(chars)} sharing a ${getRandEle(objects)}`
+        ` ${res.verbs[index][0]} ${res.verbs[index][1]} ${getRandEle(res.objects)}`,
+        ` and a ${getRandEle(res.adjectives)} ${getRandEle(res.characters)} ${res.verbs[index][0]} ${res.verbs[index][1]} ${getRandEle(res.objects)}`,
+        ` ${res.verbs[index][0]} ${res.verbs[index][1]} ${getRandEle(res.objects)} while ${res.verbs[index1][0]} ${res.verbs[index1][1]} ${getRandEle(res.objects)}`,
+        ` with a ${getRandEle(res.objects)}`,
+        ` with a ${getRandEle(res.objects)} and a ${getRandEle(res.objects)}`,
+        ` with a ${getRandEle(res.adjectives)} ${getRandEle(res.objects)}`,
+        ` with a ${getRandEle(res.adjectives)} ${getRandEle(res.objects)} and a ${getRandEle(res.adjectives)} ${getRandEle(res.objects)}`,
+        ` with a ${getRandEle(res.objects)} ${res.verbs[index][0]} ${res.verbs[index][1]} ${getRandEle(res.objects)}`,
+        ` with a ${getRandEle(res.objects)} while ${res.verbs[index][0]} ${res.verbs[index][1]} ${getRandEle(res.objects)}`,
+        ` which is ${res.verbs[index][0]}`,
+        ` with a ${getRandEle(res.adjectives)} and ${getRandEle(res.adjectives)} ${getRandEle(res.characters)}`,
+        ` with a ${getRandEle(res.adjectives)} ${getRandEle(res.characters)} sharing a ${getRandEle(res.objects)}`,
+        ` which is ${res.verbs[index][0]}, like a ${getRandEle(res.objects)}`,
+        ` and a ${getRandEle(res.adjectives)} ${getRandEle(res.characters)} sharing a ${getRandEle(res.objects)}`
     ]
 
-    idea.innerHTML = `A ${getRandEle(adjs)} ${getRandEle(chars)}${getRandEle(situations)}.`
+    idea.innerHTML = `A ${getRandEle(res.adjectives)} ${getRandEle(res.characters)}${getRandEle(situations)}.`
 }
-
-generateIdea();
