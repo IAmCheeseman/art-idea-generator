@@ -23,11 +23,13 @@ function loadFile(url) {
     console.log(`Loaded ${url}`)
 
     if (loaded === required.length) {
-        generateIdea()
+        generateIdea() // Generates the random idea once everything is loaded
     }
   }
   xhr.open("GET", "/" + url);
+  xhr.send();
   console.log(`Requesting ${url}`)
+  
   return true;
 }
 
