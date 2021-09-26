@@ -20,13 +20,15 @@ function loadFile(url) {
     res[urlSplit[0]] = JSON.parse(xhr.responseText)
     loaded += 1
     idea.innerHTML = loaded + "/" + required.length +" resources loaded"
+    console.log(`Loaded ${url}`)
 
     if (loaded === required.length) {
         generateIdea()
     }
   }
   xhr.open("GET", "/" + url);
-  console.log(`Requesting /${url}`)
+  console.log(`Requesting ${url}`)
+  return true;
 }
 
 required.forEach(function (item, index) {
