@@ -34,15 +34,23 @@ div.title {
 }
 
 div.content {
-    padding: 30%;
-    padding-top: 2%;
+    padding-top: 5vh;
 
     /* background-color: rgb(26, 35, 61); */
 }
 
-footer {
-    padding-left: 40%;
-    padding-right: 40%;
+div.everything {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#credits {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 h1, h2, h3 {
@@ -78,4 +86,8 @@ button:hover {
     background-color: rgb(37, 48, 80);
     border-color: rgb(26, 35, 59);
     cursor: pointer;
+}
+
+a {
+    color: deepskyblue;
 }
