@@ -26,7 +26,7 @@ function loadFile(url) {
         generateIdea() // Generates the random idea once everything is loaded
     }
   }
-  xhr.open("GET", "/" + url);
+  xhr.open("GET", url);
   xhr.send();
   console.log(`Requesting ${url}`)
 
